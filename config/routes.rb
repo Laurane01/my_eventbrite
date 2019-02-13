@@ -1,20 +1,13 @@
 Rails.application.routes.draw do
 
+root 'events#index'
 devise_for :users
-resources :users
+
 resources :events
+resources :users
+resources :attendances
+resources :home, only: [:index]
 
-
-	resources :home, only: [:index]
-  
-  get 'home/secret'
-
-  get 'index', to: 'event#index'
-
-  resources :users
-  resources :events
-
-  root to: 'home#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

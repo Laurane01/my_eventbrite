@@ -1,0 +1,6 @@
+<%@all_users.each do |user, i| %>
+<%=user.first_name%>
+  <%= user.description %> 
+  <%= link_to "voir le profil de l utilisateur", user_path(user.id) %>
+<% end %>
+

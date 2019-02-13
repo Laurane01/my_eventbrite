@@ -1,0 +1,32 @@
+<% if @event.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <p>Event creation process failed due to:</p>
+      <ul>
+      <% @event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_tag url_for(action: 'create'), method: "post" do %>
+  <h6 class=text-info>Titre</h6>
+  <%= text_field_tag 'title', '', class: 'form-control', placeholder: 'Ex: Mon anniversaire'%>
+  <p class="small">Doit être compris entre 5 et 140 caractères.</p></br>
+  <h6 class=text-info>Prix</h6>
+  <%= text_field_tag 'price', '', class: 'form-control', placeholder: 'Ex: 25'%>
+  <p class="small">Doit être un chiffre entier positif.</p></br>
+  <h6 class=text-info>Lieu</h6>
+  <%= text_field_tag 'location', '', class: 'form-control', placeholder: 'Ex: Lyon'%></br>
+  <h6 class=text-info>Date</h6>
+  <%= text_field_tag 'start_date', '', class: 'form-control', placeholder: 'Ex: 01/03/2019'%>
+  </br>
+  <h6 class=text-info>Durée</h6>
+  <%= text_field_tag 'duration', '', class: 'form-control', placeholder: 'Ex: 60 minutes'%>
+  <p class="small">Uniquement tranches horaires de 5 minutes comptabilisées (5min, 20min, 145min...)</p></br>
+  <h6 class=text-info>Description</h6>
+  <%= text_area_tag 'description', '', class: 'form-control', placeholder: 'Lieu exact de la rencontre, artistes presents, cad tous les renseignements possibles'%>
+
+  <%= submit_tag "Créer l'Event", class: "btn btn-info" %></br>
+<% end %>
+<p></p>
