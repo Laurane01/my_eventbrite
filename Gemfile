@@ -73,3 +73,5 @@ gem 'table_print'
 gem 'rspec-rails', '~> 3.8'
 
 gem 'devise'
+
+gem 'stripe'

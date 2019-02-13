@@ -2,7 +2,7 @@
 <div class="well">
 <p> Titre de l event : <%= @event.title %> </p>
 
-<p> Le potin en question : <%= @event.description %> </p>
+<p> La description de l event : <%= @event.description %> </p>
 
 <p> Pseudo de la balance : <%= @event.duration %> </p>
 
@@ -10,3 +10,46 @@
 
 <p> Date de l evenement : <%= @event.start_date %> </p>
 
+<p> Nombre d inscrits : <%= @event.attendances.count %> </p>
+
+<%= form_tag attendance_subscription_path do %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+    <label class="amount">
+      <span>Pour rejoindre l event, payez son prix : <%= @event.price.to_f / 100%> euros</span>
+    </label>
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="A month's subscription"
+          data-amount="<%= @event.price%>"
+          data-currency="eur"
+          data-locale="auto"></script>
+<% end %>
+
+
+<div class="well">
+	</div> 
+
+	<h1> La liste des participants </h1>
+
+	<table class = "table table-striped">
+		<tr>
+			<th> Nom </th>
+			<th> Adresse email </th>
+			<th> </th>
+		</tr>
+		<% @event.attendances.each do |attendance|%>
+			<td> <%= attendance.user.first_name%> </td>
+			<td> <%= attendance.user.email %> </td>
+			<td> <%= link_to('voir le profil du participant', user_path(attendance))%></td>
+			</tr>
+			<% end %>
+		</table>
+
+	<% # if logged in? %>

@@ -30,6 +30,30 @@ class EventsController < ApplicationController
 		end
 	end
 
+
+  def edit
+    @event = Event.find(params[:id])
+  end
+
+  def update
+    @event = Event.find(params[:id])
+    post_params = params[:event]
+    if @event.update(title: post_params[:title], description: post_params[:description], price: post_params[:price].to_i, location: post_params[:location], start_date: post_params[:start_date], duration: post_params[:duration])
+      redirect_to event_path(params[:id])
+    else
+      flash[:danger] = "Il manque des informations"
+      render :new 
+    end
+  end
+
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+
+    flash[:notice] = "Vous avez supprimé un potin avec succès"
+    redirect_to root_path
+  end
+
 	private
 
 	def authenticate_user
