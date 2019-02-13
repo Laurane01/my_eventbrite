@@ -16,7 +16,7 @@ ActiveRecord::Base.connection.reset_pk_sequence!('attendances')
 
 20.times do
 
-users = User.create!(first_name: Faker::Dog.name, last_name: Faker::Dog.breed, email: Faker::Internet.email, encrypted_password: '123456', description: Faker::Dog.meme_phrase, user_name: Faker::Artist.name)
+users = User.create!(first_name: Faker::Dog.name, last_name: Faker::Dog.breed, email: Faker::Internet.email, password: "hellolslsls", description: Faker::Dog.meme_phrase, user_name: Faker::Artist.name)
 end
 
 20.times do

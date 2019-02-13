@@ -1,0 +1,29 @@
+
+
+<%= @all_events.each_with_index do |event, i| %>
+ Event <%=i+1 %>
+  <%= event.title %> </br>
+  <%= event.description %> </br>
+  <%= event.start_date.strftime("%m/%d/%y") %>
+  <%= event.start_date.strftime("%H:%M") %>
+<% end %>
+
+zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+
+<%= @all_events.each do |event, i| %>
+<%=event.location%>
+zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+ <%= event.title %> 
+  <%= event.description %> 
+<% end %>
+zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+
+
+yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
+
+<%= @all_events.select(:location)%>
+
+
+
+
+<%= @all_events_by_cities  %>

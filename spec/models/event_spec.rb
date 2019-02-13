@@ -11,11 +11,9 @@ RSpec.describe Event, type: :model do
   	end 
   end 
 
-
-
-  describe "description" do
-  	it "should return a text" do 
-  		expect(@event.description).to be_a(Text)
+  describe "duration" do
+  	it "should return an integer" do 
+  		expect(@event.duration).to be_a(Integer)
   	end 
   end 
 
