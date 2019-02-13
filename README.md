@@ -1,24 +1,18 @@
-# README
+# Bienvenue dans notre application d'évenements 🌟
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Moussaillons aux commandes : 
 
-Things you may want to cover:
+Laurane Petit 🙈 - @Laurane
+Mallaury Bajas 🙉 - @Mallau
 
-* Ruby version
+# Pour lancer notre projet
+* clone nos repo sur ton ordinateur
+* execute un bundle install
+* exectuer la commande rails db:create
+* execute la commande rails db:migrate
+* execute la gem seed : rails db:seed
+* navigue a travers notre projet 
 
-* System dependencies
+# Nos réalisations
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Si toi aussi tu souhaite rejoindre ou créer un évenement sur notre plateforme, alors test notre système de création et de planification d'évenement ! 
