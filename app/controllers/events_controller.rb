@@ -48,13 +48,13 @@ class EventsController < ApplicationController
 	end
 
 	def destroy
-    puts "hellllllllllllooooooooooooooooooooooo"
-    puts params[:id]
-    @event = Event(params[:id])
-    @event.destroy
-    @event.save
-    redirect_to root_path
-end 
+		puts "hellllllllllllooooooooooooooooooooooo"
+		puts params[:id]
+		@event = Event(params[:id])
+		@event.destroy
+		@event.save
+		redirect_to root_path
+	end 
 
 	private
 

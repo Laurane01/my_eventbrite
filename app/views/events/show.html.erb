@@ -4,66 +4,65 @@
 	<title>Event selectionne.</title>
 </head>
 <body >
-<center>
-<div class="col-sm-6">
-<div class="card text-center" style="width: 18rem;">
-<div class="mx-auto" style="width: 600px;">
+	<center>
+		<div class="col-sm-6">
+			<div class="card text-center" style="width: 18rem;">
+				<div class="mx-auto" style="width: 600px;">
 
-  <img class="card-img-top" style="width: 350px;" src="https://i.pinimg.com/originals/6d/7f/16/6d7f16413de6c9799d5e2ba49c5f3d23.jpg" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">	Titre: <%= @event.title %> </h5>
-    <p class="card-text"><p>  La description : <%= @event.description %> </p>
-    <p class="card-text"><p>  Duree de l'Event : <%= @event.duration %>  </p>
-    <p class="card-text"><p>  Ville : <%= @event.location %>  </p>
-    <p class="card-text"><p>  Date : <%= @event.start_date %>  </p>
-    <p class="card-text"><p>  Nombre d'inscrits : <%= @event.attendances.count %> </p>
- <%= form_tag attendance_subscription_path do %>
-  <article>
-    <% if flash[:error].present? %>
-      <div id="error_explanation">
-        <p><%= flash[:error] %></p>
-      </div>
-    <% end %>
-    <label class="amount">
-      <span>Pour rejoindre l event, payez son prix : <%= @event.price.to_f / 100%> euros</span>
-    </label>
-  </article>
+					<img class="card-img-top" style="width: 350px;" src="https://i.pinimg.com/originals/6d/7f/16/6d7f16413de6c9799d5e2ba49c5f3d23.jpg" alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">	Titre: <%= @event.title %> </h5>
+						<p class="card-text"><p>  La description : <%= @event.description %> </p>
+						<p class="card-text"><p>  Duree de l'Event : <%= @event.duration %>  </p>
+						<p class="card-text"><p>  Ville : <%= @event.location %>  </p>
+						<p class="card-text"><p>  Date : <%= @event.start_date %>  </p>
+						<p class="card-text"><p>  Nombre d'inscrits : <%= @event.attendances.count %> </p>
+						<%= form_tag attendance_subscription_path do %>
+						<article>
+							<% if flash[:error].present? %>
+							<div id="error_explanation">
+								<p><%= flash[:error] %></p>
+							</div>
+							<% end %>
+							<label class="amount">
+								<span>Pour rejoindre l event, payez son prix : <%= @event.price.to_f / 100%> euros</span>
+							</label>
+						</article>
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="A month's subscription"
-          data-amount="<%= @event.price%>"
-          data-currency="eur"
-          data-locale="auto"></script>
-<% end %>
+						<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+						data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+						data-description="A month's subscription"
+						data-amount="<%= @event.price%>"
+						data-currency="eur"
+						data-locale="auto"></script>
+						<% end %>
 
 
-<div class="well">
-	</div> 
+						<div class="well">
+						</div> 
 
-	<h1> La liste des participants </h1>
+						<h1> La liste des participants </h1>
 
-	<table class = "table table-striped">
-		<tr>
-			<th> Nom </th>
-			<th> Adresse email </th>
-			<th> </th>
-		</tr>
-		<% @event.attendances.each do |attendance|%>
-			<td> <%= attendance.user.first_name%> </td>
-			<td> <%= attendance.user.email %> </td>
-			<td> <%= link_to('voir le profil du participant', user_path(attendance))%></td>
-			</tr>
-			<% end %>
-		</table>
+						<table class = "table table-striped">
+							<tr>
+								<th> Nom </th>
+								<th> Adresse email </th>
+								<th> </th>
+							</tr>
+							<% @event.attendances.each do |attendance|%>
+							<td> <%= attendance.user.first_name%> </td>
+							<td> <%= attendance.user.email %> </td>
+							<td> <%= link_to('voir le profil du participant', user_path(attendance))%></td>
+						</tr>
+						<% end %>
+					</table>
+					<br/>
+					<br/>
+				</div>
 
-    <br/>
-    <br/>
-	</div>
-
-  </div>
-	</div>
-</p>
+			</div>
+		</div>
+	</p>
 </center>
 </body>
 </html>
