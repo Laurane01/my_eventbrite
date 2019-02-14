@@ -1,7 +1,32 @@
-<% @events.each do |event| %>
-<%= event.location%>
- <%= event.title %> 
-  <%= event.description %> 
-  <%= link_to "voir l'evenement", event_path(event.id) %>
-<% end %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Bienvenue sur Eventbrite</title>
+</head>
+<body >
 
+
+	<h3> <center> Bienvenue sur Eventbrite <center></h3>
+
+</body>
+</html>
+
+<% @events.each do |event| %>
+<div class="col-sm-6">
+<div class="card text-center" style="width: 18rem;">
+<div class="mx-auto" style="width: 600px;">
+
+  <img class="card-img-top" style="width: 350px;" src="https://partyflock.nl/ov/images/party/346121_620x413_460681/Downtown-Beach-Party.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">	<%= event.location%></h5>
+    <p class="card-text"><p>  <%= event.title %>  </p>
+    <p class="card-text"><p>  <%= event.description %>  </p>
+    <p class="btn btn-info"> <%= link_to "Voir l'Event.", event_path(event.id) %></p>
+    <br/>
+    <br/>
+	</div>
+
+  </div>
+	</div>
+</div>
+<% end %>
