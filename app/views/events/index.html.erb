@@ -22,11 +22,10 @@
     <p class="card-text"><p>  <%= event.title %>  </p>
     <p class="card-text"><p>  <%= event.description %>  </p>
     <p class="btn btn-info"> <%= link_to "Voir l'Event.", event_path(event.id) %></p>
-    <td> <%= button_to "Modifier", edit_event_path(event.id), class: "btn btn-primary", method: "get"   %></br></br>
-    <br/>
-    <br/>
+    <td> <%= button_to "Modifier", edit_event_path(event.id), class: "btn btn-primary", method: "get"   %>
+    <td> <%= button_to "Supprimer l'Event", event_path(event.id), method: "delete", class: "btn btn-danger", data: { confirm: "Vous-êtes vraiment sur ?"} %></td> 
 	</div>
-
+</br></br>
   </div>
 	</div>
 </div>

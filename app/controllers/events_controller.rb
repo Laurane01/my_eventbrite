@@ -47,6 +47,15 @@ class EventsController < ApplicationController
 		end 
 	end
 
+	def destroy
+    puts "hellllllllllllooooooooooooooooooooooo"
+    puts params[:id]
+    @event = Event(params[:id])
+    @event.destroy
+    @event.save
+    redirect_to root_path
+end 
+
 	private
 
 	def authenticate_user
