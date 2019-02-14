@@ -30,6 +30,22 @@ class EventsController < ApplicationController
 		end
 	end
 
+	def edit
+		@event = Event.find(params[:id])
+	end 
+	def update
+		@event = Event.find(params[:id])
+		event_params = Hash.new {   }
+		event_params = params.require(:event).permit(:title, :description)
+
+		@event.update(event_params)
+		if @event.update(event_params)
+			"Bravo tu as cree un new Event"
+			redirect_to root_path
+		else
+			render :edit
+		end 
+	end
 
 	private
 

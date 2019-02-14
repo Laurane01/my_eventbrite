@@ -1,6 +1,32 @@
-<%@all_users.each do |user, i| %>
-<%=user.first_name%>
-  <%= user.description %> 
-  <%= link_to "voir le profil de l utilisateur", user_path(user.id) %>
-<% end %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Bienvenue sur Eventbrite</title>
+</head>
+<body >
 
+
+	<h3> <center> Bienvenue sur Eventbrite <center></h3>
+
+</body>
+</html>
+
+<%@user.each do |user| %>
+<div class="col-sm-6">
+<div class="card text-center" style="width: 18rem;">
+<div class="mx-auto" style="width: 600px;">
+
+  <img class="card-img-top" style="width: 350px;" src="https://pngimage.net/wp-content/uploads/2018/06/funny-png-pictures-4.png" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">	<%=user.first_name%></h5>
+    <p class="card-text"><p>  <%= user.description %>   </p>
+    <p class="card-text"><p>  <%= user.email %>  </p>
+    <p class="btn btn-info"> <%= link_to "voir le profil de l utilisateur", user_path(user.id) %></p>
+    <br/>
+    <br/>
+	</div>
+
+  </div>
+	</div>
+</div>
+<% end %>

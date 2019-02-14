@@ -63,13 +63,4 @@ class AttendancesController < ApplicationController
 			redirect_to event_path(params[:event_id])
 		end
 	end
-
-	#def already_attendance_or_admin
-		#@event = Event.find(params[:event_id])
-		#if (current_user == @event.admin) || (@event.attendances.include?(current_user))
-			#flash[:danger] = "Vous n'avez pas accès à cette fonctionnalité"
-			#redirect_to event_path(params[:event_id])
-		#end
-	#end
-
 end
